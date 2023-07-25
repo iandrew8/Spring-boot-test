@@ -1,0 +1,24 @@
+package com.springboot.systems.system_wide.services.utils;
+
+import com.springboot.systems.system_wide.models.core.security.CustomUser;
+import com.springboot.systems.system_wide.models.core.security.User;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+public class CustomSecurityUtil {
+
+	public static User getCurrentlyLoggedInUser() {
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		if (securityContext.getAuthentication() != null) {
+			if (securityContext.getAuthentication().getPrincipal() != null
+					&& securityContext.getAuthentication().getPrincipal() instanceof CustomUser) {
+				System.out.println("Logged in user " + securityContext.getAuthentication().getPrincipal());
+
+				CustomUser customUser = (CustomUser) securityContext.getAuthentication().getPrincipal();
+				return customUser.getUser();
+			}
+		}
+		return null;
+	}
+
+}
