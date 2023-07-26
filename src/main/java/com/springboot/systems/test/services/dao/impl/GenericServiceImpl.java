@@ -41,14 +41,6 @@ public abstract class GenericServiceImpl<T extends Auditable> extends BaseDAOImp
 
     @Autowired
     @Lazy
-    public CurrencyConversionService currencyConversionService;
-
-    @Autowired
-    @Lazy
-    public DataPackageService dataPackageService;
-
-    @Autowired
-    @Lazy
     public LogService logService;
 
     @Autowired
@@ -61,23 +53,11 @@ public abstract class GenericServiceImpl<T extends Auditable> extends BaseDAOImp
 
     @Autowired
     @Lazy
-    public ServiceZoneService serviceZoneService;
-
-    @Autowired
-    @Lazy
     public UserProfileService userProfileService;
 
     @Autowired
     @Lazy
     public EmailTemplateService emailTemplateService;
-
-    @Autowired
-    @Lazy
-    public CurrencyService currencyService;
-
-    @Autowired
-    @Lazy
-    public UnitOfMeasureService unitOfMeasureService;
 
     @Autowired
     @Lazy

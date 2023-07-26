@@ -25,9 +25,9 @@ public class EmailClientServiceImpl implements EmailClientService {
 
     private final ApplicationSettingService applicationSettingService;
 
-    private static String EMAIL = "collins@bcs-ea.com";// change with your sender email
+    private static String EMAIL = "ibandaandrew8@gmail.com";// change with your sender email
     private static String PASSWORD = "yyhmjgdpjiocmryu";// change with your sender password
-    private static String SENDER = "systems@bcs-ea.com";
+    private static String SENDER = "ibandaandrew8@gmail.com";
     private static String PORT = "587";
     private static String HOST = "smtp.gmail.com";
 

@@ -1,7 +1,6 @@
 package com.springboot.systems.test.services.core.setup.impl;
 
 import com.springboot.systems.test.models.enums.Actions;
-import com.springboot.systems.test.services.core.setup.repo.CurrencyRepository;
 import com.springboot.systems.test.services.dao.impl.GenericServiceImpl;
 import com.springboot.systems.test.controllers.dtos.setup.payload.ApplicationSettingPayload;
 import com.springboot.systems.test.models.core.security.annotations.permissions.PermissionConstants;
@@ -28,7 +27,6 @@ import java.text.ParseException;
 public class ApplicationSettingServiceImpl extends GenericServiceImpl<ApplicationSetting> implements ApplicationSettingService {
 
     private final ApplicationSettingRepository applicationSettingRepository;
-    private final CurrencyRepository currencyRepository;
 
     @Override
     public ApplicationSetting saveInstance(ApplicationSetting entityInstance) throws ValidationFailedException, OperationFailedException {
@@ -76,7 +74,6 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
 
         applicationSetting.setClickUpPrivateKey(applicationSettingPayload.getClickUpPrivateKey());
         applicationSetting.setSmartOLTAPIKey(applicationSettingPayload.getSmartOLTAPIKey());
-        applicationSetting.setSystemCurrency(currencyService.getInstanceByID(applicationSettingPayload.getCurrencyId()));
         applicationSetting.setSystemEmail(applicationSettingPayload.getSystemEmail());
         applicationSetting.setSystemEmailHost(applicationSettingPayload.getSystemEmailHost());
         applicationSetting.setSystemEmailPassword(applicationSettingPayload.getSystemEmailPassword());
@@ -97,9 +94,6 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
 
         if (applicationSettingPayload.getSmartOLTAPIKey() != null)
             applicationSettingToEdit.setSmartOLTAPIKey(applicationSettingPayload.getSmartOLTAPIKey());
-
-        if (applicationSettingPayload.getCurrencyId() != null)
-            applicationSettingToEdit.setSystemCurrency(currencyService.getInstanceByID(applicationSettingPayload.getCurrencyId()));
 
         if (applicationSettingPayload.getSystemEmail() != null)
             applicationSettingToEdit.setSystemEmail(applicationSettingPayload.getSystemEmail());
@@ -147,7 +141,6 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
                 applicationSetting.setSystemEmailPort("587");
                 applicationSetting.setSystemEmailPassword("yyhmjgdpjiocmryu");
                 applicationSetting.setGoogleDriveFolderId("1-0R7_4SLQQG13EfmhJx7SfFp60u7YlUD");
-                applicationSetting.setSystemCurrency(currencyRepository.findCurrencyByUnitAndRecordStatus("USD", RecordStatus.ACTIVE).orElse(null));
                 applicationSettingService.saveInstance(applicationSetting);
             }
         } catch (ValidationFailedException | OperationFailedException e) {

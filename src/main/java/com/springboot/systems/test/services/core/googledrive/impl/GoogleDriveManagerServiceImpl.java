@@ -39,7 +39,7 @@ import java.util.List;
 public class GoogleDriveManagerServiceImpl implements GoogleDriveManagerService {
 
     private final ApplicationSettingService applicationSettingService;
-    private static final String APPLICATION_NAME = "BCS Billing System";
+    private static final String APPLICATION_NAME = "Spring Boot Test App";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
@@ -70,7 +70,7 @@ public class GoogleDriveManagerServiceImpl implements GoogleDriveManagerService 
                 .build();
 //        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setHost("localhost").setPort(8081).build();
         LocalServerReceiver receiver = new LocalServerReceiver.Builder()
-                .setHost("http://bcs-billing-system-backend-staging.ap-northeast-1.elasticbeanstalk.com").setPort(5001).build();
+                .setHost("").setPort(5001).build();
 
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
