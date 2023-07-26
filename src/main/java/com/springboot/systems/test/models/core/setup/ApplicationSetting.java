@@ -16,7 +16,6 @@ import javax.persistence.*;
 public class ApplicationSetting extends Auditable {
     private String clickUpPrivateKey, smartOLTAPIKey, systemEmail, systemEmailPassword, systemEmailHost, systemEmailPort,
     systemEmailSender, googleDriveFolderId;
-    private Currency systemCurrency;
 
     /**
      * This is the email address meant to be filled in the "From" field whenever an email is being sent
@@ -68,12 +67,6 @@ public class ApplicationSetting extends Auditable {
     @Column(name = "smart_olt_api_key")
     public String getSmartOLTAPIKey() {
         return smartOLTAPIKey;
-    }
-
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinColumn(name = "system_currency_id", nullable = false)
-    public Currency getSystemCurrency() {
-        return systemCurrency;
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.springboot.systems.test.controllers.dtos.setup.response;
 
 import com.springboot.systems.test.controllers.dtos.BaseResponse;
 import com.springboot.systems.test.models.core.setup.ApplicationSetting;
-import com.springboot.systems.test.models.core.setup.Currency;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,13 +12,11 @@ import lombok.Setter;
 public class ApplicationSettingResponse extends BaseResponse {
     private String clickUpPrivateKey, smartOLTAPIKey, systemEmail, systemEmailPassword, systemEmailHost, systemEmailPort,
             systemEmailSender;
-    private Currency systemtCurrency;
 
     public ApplicationSettingResponse(ApplicationSetting applicationSetting) {
         this.setId(applicationSetting.getId());
         this.clickUpPrivateKey = applicationSetting.getClickUpPrivateKey();
         this.smartOLTAPIKey = applicationSetting.getSmartOLTAPIKey();
-        this.systemtCurrency = applicationSetting.getSystemCurrency();
         this.systemEmail = applicationSetting.getSystemEmail();
         this.systemEmailPassword = applicationSetting.getSystemEmailPassword();
         this.systemEmailHost = applicationSetting.getSystemEmailHost();
