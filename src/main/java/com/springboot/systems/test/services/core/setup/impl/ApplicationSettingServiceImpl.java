@@ -72,14 +72,11 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
         if (applicationSetting == null)
             applicationSetting = new ApplicationSetting();
 
-        applicationSetting.setClickUpPrivateKey(applicationSettingPayload.getClickUpPrivateKey());
-        applicationSetting.setSmartOLTAPIKey(applicationSettingPayload.getSmartOLTAPIKey());
         applicationSetting.setSystemEmail(applicationSettingPayload.getSystemEmail());
         applicationSetting.setSystemEmailHost(applicationSettingPayload.getSystemEmailHost());
         applicationSetting.setSystemEmailPassword(applicationSettingPayload.getSystemEmailPassword());
         applicationSetting.setSystemEmailPort(applicationSettingPayload.getSystemEmailPort());
         applicationSetting.setSystemEmailSender(applicationSettingPayload.getSystemEmailSender());
-        applicationSetting.setGoogleDriveFolderId(applicationSettingPayload.getGoogleDriveFolderId());
 
         return saveInstance(applicationSetting);
     }
@@ -88,12 +85,6 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
     public <R> ApplicationSetting updateRecord(String id, R payload) throws ContentNotFoundException, ValidationFailedException, OperationFailedException, ParseException {
         ApplicationSetting applicationSettingToEdit = getInstanceByID(id);
         ApplicationSettingPayload applicationSettingPayload = (ApplicationSettingPayload) payload;
-
-        if (applicationSettingPayload.getClickUpPrivateKey() != null)
-            applicationSettingToEdit.setClickUpPrivateKey(applicationSettingPayload.getClickUpPrivateKey());
-
-        if (applicationSettingPayload.getSmartOLTAPIKey() != null)
-            applicationSettingToEdit.setSmartOLTAPIKey(applicationSettingPayload.getSmartOLTAPIKey());
 
         if (applicationSettingPayload.getSystemEmail() != null)
             applicationSettingToEdit.setSystemEmail(applicationSettingPayload.getSystemEmail());
@@ -109,9 +100,6 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
 
         if (applicationSettingPayload.getSystemEmailSender() != null)
             applicationSettingToEdit.setSystemEmailSender(applicationSettingPayload.getSystemEmailSender());
-
-        if (applicationSettingPayload.getGoogleDriveFolderId() != null)
-            applicationSettingToEdit.setGoogleDriveFolderId(applicationSettingPayload.getGoogleDriveFolderId());
 
         return saveInstance(applicationSettingToEdit);
     }
@@ -133,14 +121,11 @@ public class ApplicationSettingServiceImpl extends GenericServiceImpl<Applicatio
         try {
             if (applicationSettingService.getAllInstances().isEmpty()) {
                 ApplicationSetting applicationSetting = new ApplicationSetting();
-                applicationSetting.setClickUpPrivateKey("pk_4759650_IXOZI4IQBOF4597AQY8JTIP04OEFDV7Y");
-                applicationSetting.setSmartOLTAPIKey("fbce00b6396e4ac49c2ddae23d67ef17");
-                applicationSetting.setSystemEmail("collins@bcs-ea.com");
-                applicationSetting.setSystemEmailSender("systems@bcs-ea.com");
+                applicationSetting.setSystemEmail("ibandaandrew8@gmail.com");
+                applicationSetting.setSystemEmailSender("ibandaandrew8@gmail.com");
                 applicationSetting.setSystemEmailHost("smtp.gmail.com");
                 applicationSetting.setSystemEmailPort("587");
                 applicationSetting.setSystemEmailPassword("yyhmjgdpjiocmryu");
-                applicationSetting.setGoogleDriveFolderId("1-0R7_4SLQQG13EfmhJx7SfFp60u7YlUD");
                 applicationSettingService.saveInstance(applicationSetting);
             }
         } catch (ValidationFailedException | OperationFailedException e) {

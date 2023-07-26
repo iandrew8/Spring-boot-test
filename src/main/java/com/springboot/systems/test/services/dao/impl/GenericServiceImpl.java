@@ -1,18 +1,17 @@
 package com.springboot.systems.test.services.dao.impl;
 
+import com.googlecode.genericdao.search.Search;
 import com.springboot.systems.test.models.core.auditable.Auditable;
 import com.springboot.systems.test.models.core.security.User;
 import com.springboot.systems.test.models.enums.RecordStatus;
 import com.springboot.systems.test.services.core.emailtemplate.EmailClientService;
 import com.springboot.systems.test.services.core.emailtemplate.EmailTemplateService;
-import com.springboot.systems.test.services.core.googledrive.GoogleDriveManagerService;
 import com.springboot.systems.test.services.core.logs.LogService;
 import com.springboot.systems.test.services.core.security.*;
-import com.springboot.systems.test.services.core.setup.*;
+import com.springboot.systems.test.services.core.setup.ApplicationSettingService;
 import com.springboot.systems.test.services.dao.GenericService;
 import com.springboot.systems.test.services.exceptions.ContentNotFoundException;
 import com.springboot.systems.test.services.exceptions.OperationFailedException;
-import com.googlecode.genericdao.search.Search;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -34,10 +33,6 @@ public abstract class GenericServiceImpl<T extends Auditable> extends BaseDAOImp
     @Autowired
     @Lazy
     public EmailClientService emailClientService;
-
-    @Autowired
-    @Lazy
-    public GoogleDriveManagerService googleDriveManagerService;
 
     @Autowired
     @Lazy

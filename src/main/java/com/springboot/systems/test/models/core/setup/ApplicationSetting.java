@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Setter
 public class ApplicationSetting extends Auditable {
-    private String clickUpPrivateKey, smartOLTAPIKey, systemEmail, systemEmailPassword, systemEmailHost, systemEmailPort,
-    systemEmailSender, googleDriveFolderId;
+    private String systemEmail, systemEmailPassword, systemEmailHost, systemEmailPort,
+    systemEmailSender;
 
     /**
      * This is the email address meant to be filled in the "From" field whenever an email is being sent
@@ -24,15 +24,6 @@ public class ApplicationSetting extends Auditable {
     @Column(name = "system_email_sender")
     public String getSystemEmailSender() {
         return systemEmailSender;
-    }
-
-    /**
-     * This is the folder id of the google drive folder where all the files will be uploaded to
-     * @return
-     */
-    @Column(name = "google_drive_folder_id")
-    public String getGoogleDriveFolderId() {
-        return googleDriveFolderId;
     }
 
     /**
@@ -59,19 +50,9 @@ public class ApplicationSetting extends Auditable {
         return systemEmailPort;
     }
 
-    @Column(name = "click_up_private_key")
-    public String getClickUpPrivateKey() {
-        return clickUpPrivateKey;
-    }
-
-    @Column(name = "smart_olt_api_key")
-    public String getSmartOLTAPIKey() {
-        return smartOLTAPIKey;
-    }
-
     @Override
     public String toString() {
-        return "ClickUp Private Key: "+this.clickUpPrivateKey;
+        return "System Email: "+this.systemEmail;
     }
 
     @Override
